@@ -14,7 +14,7 @@ class Avalista extends Authenticatable implements JWTSubject
     public $timestamps = false;
     protected $fillable = [
         'avalista_id',
-        'grupo_id',
+        'curso_id',
         'avalista_nome',
         'avalista_email',
         'avalista_senha'
@@ -24,9 +24,9 @@ class Avalista extends Authenticatable implements JWTSubject
         'avalista_senha'
     ];
 
-    public function Grupo()
+    public function Curso()
     {
-        return $this->hasMany(Avaliador_grupo::class, 'grupo_id', 'grupo_id');
+        return $this->belongsTo(Curso::class, 'curso_id', 'curso_id');
     }
 
     public function getJWTIdentifier()
