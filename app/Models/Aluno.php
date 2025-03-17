@@ -14,7 +14,6 @@ class Aluno extends Authenticatable implements JWTSubject
     protected $fillable = [
         'aluno_id',
         'curso_id',
-        'grupo_id',
         'aluno_nome',
         'aluno_foto_url',
         'aluno_email',
@@ -30,11 +29,6 @@ class Aluno extends Authenticatable implements JWTSubject
     public function Curso()
     {
         return $this->belongsTo(Curso::class, 'curso_id', 'curso_id');
-    }
-
-    public function Grupo()
-    {
-        return $this->belongsTo(Grupo::class, 'grupo_id', 'grupo_id');
     }
 
     public function Grupo_aluno()

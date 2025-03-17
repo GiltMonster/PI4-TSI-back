@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AlunoController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AvalistaController;
 use Illuminate\Support\Facades\Route;
@@ -16,3 +17,6 @@ Route::middleware('api')->resource('avalista', AvalistaController::class)->missi
         return response()->json(['message' => 'Rotas não encontradas'], 404);
 })->except(['index', 'create', 'edit']);
 
+Route::middleware('api')->resource('aluno', AlunoController::class)->missing(function () {
+        return response()->json(['message' => 'Rotas não encontradas'], 404);
+})->except(['index', 'create', 'edit']);
